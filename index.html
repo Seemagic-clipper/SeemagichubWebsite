@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) Seemagichub.com-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JF8YQWEJYQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JF8YQWEJYQ');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seemagic electric nail clipper</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; font-family:"Segoe UI", Arial, sans-serif; }
+body { background:#f8fafc; color:#333; line-height:1.5; }
+a { text-decoration:none; color:inherit; }
+img { display:block; max-width:100%; height:auto; }
+
+/* 顶部导航 */
+header {
+  position: sticky;
+  top:0;
+  background:#fff;
+  box-shadow:0 2px 5px rgba(0,0,0,0.1);
+  z-index:1000;
+}
+.navbar {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  max-width:1200px;
+  margin:0 auto;
+  padding:0.8rem 1rem;
+}
+.navbar .logo { font-size:1.5rem; font-weight:bold; color:#ff7f50; }
+.navbar ul { display:flex; gap:1rem; list-style:none; }
+.navbar li { padding:0.5rem 0; }
+.navbar a:hover { color:#ff7f50; }
+
+/* 响应式菜单按钮 */
+.nav-toggle { display:none; flex-direction:column; cursor:pointer; }
+.nav-toggle span { height:3px; width:25px; background:#333; margin-bottom:5px; border-radius:2px; }
+
+/* Banner轮播容器 - 融合版本 */
+.banner {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+.banner img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+.banner img.active { opacity: 1; }
+
+/* 手机端适配 */
+@media (max-width: 768px) {
+  .banner { height: 60vh; }
+}
+
+/* 箭头按钮 */
+.banner-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background: rgba(0,0,0,0.3);
+  color: rgba(255,255,255,0.8);
+  font-size: 2rem;
+  border-radius: 50%;
+  cursor: pointer;
+  user-select: none;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.3s, color 0.3s;
+}
+.banner-arrow:hover {
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+}
+.banner-arrow.left { left: 20px; }
+.banner-arrow.right { right: 20px; }
+
+/* 产品展示 */
+.products {
+  max-width:1200px;
+  margin:2rem auto;
+  padding:0 1rem;
+}
+.products h2 { text-align:center; margin-bottom:1rem; color:#ff7f50; }
+.product-grid {
+  display:flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap:1rem;
+}
+.product-card {
+  background:#fff;
+  border-radius:10px;
+  box-shadow:0 2px 5px rgba(0,0,0,0.1);
+  overflow:hidden;
+  flex:1 1 calc(33.333% - 1rem);
+  max-width:calc(33.333% - 1rem);
+  transition: transform 0.3s;
+}
+.product-card:hover { transform:translateY(-5px); }
+.product-card img { width:100%; height:auto; object-fit:cover; }
+.product-card .info { padding:1rem; text-align:center; }
+
+/* 关键新增：让产品描述文本两端对齐 */
+.product-card .info p {
+  text-align: justify;
+  /* 可选：优化英文单词间距，避免极端情况 */
+  word-spacing: -0.5px;
+}
+
+/* 可选：补充响应式适配，避免小屏幕显示错乱 */
+@media (max-width: 992px) {
+  .product-card {
+    flex:1 1 calc(50% - 1rem);
+    max-width:calc(50% - 1rem);
+  }
+}
+@media (max-width: 576px) {
+  .product-card {
+    flex:1 1 100%;
+    max-width:100%;
+  }
+}
+
+/* 关于我们 */
+.about {
+  max-width:800px;
+  margin:2rem auto;
+  padding:0 1rem;
+}
+.about h2 { color:#ff7f50; margin-bottom:1rem; }
+
+/* 页脚 */
+footer { background:#333; color:#fff; text-align:center; padding:1rem 0; margin-top:2rem; }
+
+/* 响应式 */
+@media(max-width:1024px){ .product-card { flex:1 1 calc(50% - 1rem); max-width:calc(50% - 1rem); } }
+@media(max-width:768px){
+  .navbar ul { display:none; flex-direction:column; gap:0; }
+  .navbar ul.show { display:flex; }
+  .nav-toggle { display:flex; }
+  .product-card { flex:1 1 100%; max-width:100%; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="navbar">
+    <div class="logo" style="display:flex; flex-direction:column; align-items:flex-start;">
+      <span style="font-size:1.5rem; font-weight:bold; color:#ff7f50;">Seemagic</span>
+      <span style="font-size:0.9rem; color:#666; margin-top:2px;">Inventor of the Smart Electric Nail Clipper</span>
+    </div>
+    <nav>
+      <ul>
+        <!-- 关键修改：给每个 a 标签添加 style="font-weight:bold;" 实现加粗 -->
+        <li><a href="#banner" style="font-weight:bold;">HOME</a></li>
+        <li><a href="#products" style="font-weight:bold;">PRODUCTS</a></li>
+        <li><a href="#about" style="font-weight:bold;">ABOUT</a></li>
+        <li><a href="#contact" style="font-weight:bold;">CONTACT</a></li>
+      </ul>
+      <div class="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- Banner -->
+<section class="banner" id="banner">
+  <!-- 图片将通过JavaScript动态生成 -->
+  <div class="banner-arrow left" onclick="prevBanner()">&#10094;</div>
+  <div class="banner-arrow right" onclick="nextBanner()">&#10095;</div>
+</section>
+
+<!-- 产品展示 -->
+<!-- 锚点占位符：高度等于导航栏高度，隐藏不显示，仅用于锚点定位 -->
+<div id="products" style="height: 80px; margin-top: -80px; visibility: hidden;"></div>
+<section class="products" id="products">
+  <h2>Our Products</h2>
+  <div class="product-grid">
+    <div class="product-card">
+      <img src="./see_pic/Seemagic_electric_nail_clipper_pro_s.webp" alt="Product 1">
+      <div class="info"><h3 style="text-align:center">Electric Nail Clipper Pro</h3><p style="text-align:left">Arguably the market's top-selling and most renowned electric nail clipper. It strikes an excellent balance of performance and price. With years of enduring global popularity, it has won millions of users' trust. It consistently tops category bestseller lists on major e-commerce platforms year-round. A landmark in the industry, it has greatly boosted the popularization of electric nail clippers.</p></div>
+    </div>
+    <div class="product-card">
+      <img src="./see_pic/Seemagic_electric_nail_clipper_smart_s.webp" alt="Product 2">
+      <div class="info"><h3 style="text-align:center">The Electric Nail Clipper Elf</h3><p style="text-align:left"> It is designed for gifting. It features sports-car-grade paint and electroplated metal for a premium look, with a smooth magnetic cover for a satisfying high-end feel. Its compact yet powerful ultra-precise gearbox easily trims even thick nails. Presented in an exquisite gift box, it makes a thoughtful and impressive present, perfect for creating memorable moments.</p></div>
+    </div>
+    <div class="product-card">
+      <img src="./see_pic/Seemagic_electric_nail_clipper_mini.webp" alt="Product 3">
+      <div class="info"><h3 style="text-align:center">Electric Nail Clipper Mini</h3><p style="text-align:left">The Seemagic Electric Nail Clipper Mini features a newly engineered internal structure, compressing every component to achieve an ultra-compact and portable design. Despite its small size, it's equipped with a heat-treated, hardened blade and a magnetic flip cover for safer, faster, and more comfortable trimming. Practical, stylish, and fun to use — the perfect everyday companion you can carry anywhere.</p></div>
+    </div>
+    <div class="product-card">
+      <img src="./see_pic/Seemagic_electric_nail_clipper_e2pro.webp" alt="Product 4">
+      <div class="info"><h3 style="text-align:center">Electric Nail Clipper (Alloy Edition)</h3><p style="text-align:left">The new Seemagic Electric Nail Clipper comes with powerful performance and a complete all-around upgrade. Crafted with a full-alloy body and finished through 17 layers of electroplating, it delivers a sleek metallic shine with a premium touch. More than just a tool, it's a statement of elegance—because true luxury lies in the experience of giving.</p></div>
+    </div>
+    <div class="product-card">
+      <img src="./see_pic/Seemagic_electric_nail_clipper_hero_small.webp" alt="Product 5">
+      <div class="info"><h3 style="text-align:center">Electric Nail Clipper Hero</h3><p style="text-align:left">The Seemagic Planet Explorer Edition reimagines nail care with a bold, cosmic-inspired design that pays tribute to the beauty of Earth. Crafted with seamless curves and finished with premium anodized metal, it feels like holding a miniature planet in your hand. Powered by our patented infrared sensing technology, it sets a new standard where innovation meets artistry—bringing both style and performance to the next level.</p></div>
+    </div>
+    <div class="product-card">
+      <img src="./see_pic/Seemagic_electric_nail_clipper_ufo_s.webp" alt="Product 6">
+      <div class="info"><h3 style="text-align:center">Electric Nail Clipper UFO</h3><p style="text-align:left"> It boasts a unique UFO-inspired design that exudes a strong sense of technology. Its incredibly affordable price creates an extremely low barrier to entry, making it the perfect choice for users trying electric nail clippers for the first time. This model is particularly well-suited for developing markets and has already earned enthusiastic praise and wide popularity among customers across Central Asia and Latin America.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 关于我们 -->
+<!-- 锚点占位符：高度等于导航栏高度，隐藏不显示，仅用于锚点定位 -->
+<div id="about" style="height: 30px; margin-top: -30px; visibility: hidden;"></div>
+<section class="about" id="about" style="background:#fff3f3; padding:60px 20px; font-family:Arial, sans-serif;">
+  <h1 style="font-size:2.5em; color:#ff7f50; margin-bottom:20px; text-align:center;">About Us</h1>
+  
+  <h2 style="text-align:left; color:#333; margin-bottom:10px;">Seemagic – Smart Nail Care Redefined</h2>
+  <p style="max-width:800px; margin:0 auto 30px; font-size:1.1em; line-height:1.6; color:#333; text-align:left;">
+    Founded in 2020 in Qingdao, China, Seemagic is a pioneer in the electric nail clipper industry. In 2021, we launched the world's first smart electric nail clipper equipped with an infrared safety sensor and intelligent detection algorithms, ensuring a safer, more precise, and effortless grooming experience. And it quickly becoming a top choice across platforms and shaping the future of nail care. Millions of units sold worldwide.
+  </p>
+  
+  <p style="max-width:800px; margin:0 auto 30px; font-size:1.1em; line-height:1.6; color:#333; text-align:left;">
+    At Seemagic, innovation drives everything we do. With numerous patents and a commitment to precision, we craft smart tools that make personal care effortless, convenient, and time-saving — helping you stay beautiful and confident anytime, anywhere.
+  </p>
+  
+  <h2 style="text-align:left; color:#333; margin-bottom:10px;">Team</h2>
+  <p style="max-width:800px; margin:0 auto; font-size:1.1em; line-height:1.6; color:#333; text-align:left;">
+    Qingdao Meiyike Technology Co., Ltd. integrates design, R&D, manufacturing, and sales. Our experienced team combines deep industry know-how with cutting-edge technology to deliver smart grooming solutions that fit modern lifestyles. With over 40 patents, we continue to lead in innovation, quality, and customer experience.
+  </p>
+</section>
+
+<!-- 联系我们 -->
+<section class="about" id="contact" style="text-align:center; padding:40px 20px; font-family:Arial, sans-serif;">
+  <h2 style="color:#ff7f50; margin-bottom:20px;">Contact Us</h2>
+
+  <!-- 可点击的邮箱 -->
+  <p style="margin-bottom:15px;">
+    Email: <a href="mailto:support@seemagic.cc" style="color:#0073e6; text-decoration:none;">support@seemagic.cc</a>
+  </p>
+
+  <!-- WhatsApp & WeChat -->
+  <div style="margin-bottom:15px;">
+    <p style="margin-bottom:10px;">WhatsApp: 85298164916</p>
+  </div>
+
+  <!-- 二维码居中并排显示 -->
+  <div style="display:flex; justify-content:center; gap:40px; margin-bottom:20px;">
+    <div>
+      <img src="./see_pic/Seemagic_electric_nail_clipper_whatsapp.webp" alt="WhatsApp QR Code" style="width:150px; height:150px; object-fit:contain;">
+      <p style="margin-top:8px;">WhatsApp</p>
+    </div>
+    <div>
+      <img src="./see_pic/Seemagic_electric_nail_clipper_wechat.webp" alt="WeChat QR Code" style="width:150px; height:150px; object-fit:contain;">
+      <p style="margin-top:8px;">WeChat</p>
+    </div>
+  </div>
+
+  <!-- 地址 -->
+  <p style="margin-top:20px;">Address: No.169 of Songling Road, Qingdao, PRC</p>
+</section>
+
+<footer>
+  &copy; <span id="year"></span> Seemagic. All rights reserved.
+</footer>
+
+<script>
+// 自动获取当前年份
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+<script>
+// 响应式导航
+const navToggle = document.querySelector('.nav-toggle');
+const navUl = document.querySelector('.navbar ul');
+navToggle.addEventListener('click', ()=>{ navUl.classList.toggle('show'); });
+
+// PC和Mobile两套banner数组 - 融合op20.html的响应式逻辑
+const pcBanners = [
+  "./see_pic/Seemagic_electric_nail_clipper_family.webp",
+  "./see_pic/Seemagic_electric_nail_clipper_pro.webp",
+  "./see_pic/Seemagic_electric_nail_clipper_smart.webp",
+  "./see_pic/Seemagic_electric_nail_clipper_hero.webp"
+];
+const mobileBanners = [
+  "./see_pic/Seemagic_electric_nail_clipper_family-phone.webp",
+  "./see_pic/Seemagic_electric_nail_clipper_pro-phone.webp",
+  "./see_pic/Seemagic_electric_nail_clipper_smart-phone.webp",
+  "./see_pic/Seemagic_electric_nail_clipper_hero-phone.webp"
+];
+
+// 根据屏幕选择数组
+let banners = (window.innerWidth <= 768) ? mobileBanners : pcBanners;
+let bannerIndex = 0;
+const bannerContainer = document.getElementById("banner");
+
+// 初始化banner图片
+function renderBanner(){
+  bannerContainer.querySelectorAll("img").forEach(el => el.remove());
+  banners.forEach((src,i)=>{
+    const img = document.createElement("img");
+    img.src = src;
+    if(i===0) img.classList.add("active");
+    bannerContainer.insertBefore(img, bannerContainer.querySelector(".banner-arrow.left"));
+  });
+}
+
+// 显示指定索引的banner
+function showBanner(index){
+  const imgs = bannerContainer.querySelectorAll("img");
+  imgs.forEach(img => img.classList.remove("active"));
+  imgs[index].classList.add("active");
+  bannerIndex = index;
+}
+
+// 下一张
+function nextBanner(){
+  showBanner((bannerIndex+1)%banners.length);
+}
+
+// 上一张
+function prevBanner(){
+  showBanner((bannerIndex-1+banners.length)%banners.length);
+}
+
+// 初始化banner
+renderBanner();
+
+// 自动轮播
+setInterval(nextBanner,4000);
+
+// 监听窗口大小变化，重新选择banner数组
+window.addEventListener('resize', function() {
+  const newBanners = (window.innerWidth <= 768) ? mobileBanners : pcBanners;
+  if (newBanners !== banners) {
+    banners = newBanners;
+    bannerIndex = 0;
+    renderBanner();
+  }
+});
+</script>
+
+</body>
+</html>
