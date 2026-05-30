@@ -13,44 +13,137 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Seemagic electric nail clipper</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
-* { margin:0; padding:0; box-sizing:border-box; font-family:"Segoe UI", Arial, sans-serif; }
-body { background:#f8fafc; color:#333; line-height:1.5; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background: #0a0a0f;
+  color: #e0e0e0;
+  font-family: 'Rajdhani', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* 科技感背景网格 */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(90deg, rgba(0,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(rgba(0,255,255,0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+  z-index: -1;
+}
+
 a { text-decoration:none; color:inherit; }
 img { display:block; max-width:100%; height:auto; }
 
-/* 顶部导航 */
+/* 顶部导航 - 霓虹风格 */
 header {
   position: sticky;
-  top:0;
-  background:#fff;
-  box-shadow:0 2px 5px rgba(0,0,0,0.1);
-  z-index:1000;
+  top: 0;
+  background: linear-gradient(180deg, rgba(10,10,20,0.98) 0%, rgba(10,10,20,0.9) 100%);
+  border-bottom: 1px solid rgba(0,255,255,0.3);
+  box-shadow: 0 0 30px rgba(0,255,255,0.1);
+  z-index: 1000;
+  backdrop-filter: blur(10px);
 }
+
 .navbar {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  max-width:1200px;
-  margin:0 auto;
-  padding:0.8rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
 }
-.navbar .logo { font-size:1.5rem; font-weight:bold; color:#ff7f50; }
-.navbar ul { display:flex; gap:1rem; list-style:none; }
-.navbar li { padding:0.5rem 0; }
-.navbar a:hover { color:#ff7f50; }
 
-/* 响应式菜单按钮 */
-.nav-toggle { display:none; flex-direction:column; cursor:pointer; }
-.nav-toggle span { height:3px; width:25px; background:#333; margin-bottom:5px; border-radius:2px; }
+.navbar .logo {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #00ffff, #ff00ff, #00ffff);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 3s ease infinite;
+  text-shadow: 0 0 20px rgba(0,255,255,0.5);
+}
 
-/* Banner轮播容器 - 融合版本 */
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.logo-subtitle {
+  font-size: 0.75rem;
+  color: #00ffff;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-top: 2px;
+  text-shadow: 0 0 10px rgba(0,255,255,0.5);
+}
+
+.navbar ul {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.navbar li a {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #888;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.navbar li a:hover {
+  color: #00ffff;
+  text-shadow: 0 0 20px rgba(0,255,255,0.8);
+}
+
+.navbar li a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #00ffff, #ff00ff);
+  transition: width 0.3s ease;
+}
+
+.navbar li a:hover::after {
+  width: 100%;
+}
+
+.nav-toggle { display: none; flex-direction: column; cursor: pointer; }
+.nav-toggle span { 
+  height: 3px; 
+  width: 25px; 
+  background: linear-gradient(90deg, #00ffff, #ff00ff); 
+  margin-bottom: 5px; 
+  border-radius: 2px; 
+}
+
+/* Banner轮播容器 - 暗黑科技风 */
 .banner {
   position: relative;
   width: 100%;
   height: 100vh;
   overflow: hidden;
+  background: #0a0a0f;
 }
+
 .banner img {
   position: absolute;
   top: 0;
@@ -59,25 +152,63 @@ header {
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  transition: opacity 1s ease-in-out;
+  transition: opacity 1.5s ease-in-out;
+  filter: brightness(0.8) contrast(1.1);
 }
-.banner img.active { opacity: 1; }
 
-/* 手机端适配 */
+.banner img.active { 
+  opacity: 1; 
+  filter: brightness(0.9) contrast(1.15);
+}
+
+/* 科技感边框效果 */
+.banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid transparent;
+  border-image: linear-gradient(135deg, #00ffff, transparent, #ff00ff) 1;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* 扫描线效果 */
+.banner::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,255,255,0.015) 2px,
+    rgba(0,255,255,0.015) 4px
+  );
+  pointer-events: none;
+  z-index: 4;
+}
+
 @media (max-width: 768px) {
   .banner { height: 60vh; }
 }
 
-/* 箭头按钮 */
+/* 箭头按钮 - 霓虹风格 */
 .banner-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 50px;
-  height: 50px;
-  background: rgba(0,0,0,0.3);
-  color: rgba(255,255,255,0.8);
-  font-size: 2rem;
+  width: 60px;
+  height: 60px;
+  background: rgba(0,0,0,0.6);
+  color: #00ffff;
+  font-size: 1.8rem;
+  border: 2px solid #00ffff;
   border-radius: 50%;
   cursor: pointer;
   user-select: none;
@@ -85,100 +216,394 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: background 0.3s, color 0.3s;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 10px #00ffff;
+  box-shadow: 0 0 20px rgba(0,255,255,0.3), inset 0 0 20px rgba(0,255,255,0.1);
 }
+
 .banner-arrow:hover {
-  background: rgba(0,0,0,0.5);
-  color: #fff;
+  background: rgba(0,255,255,0.2);
+  box-shadow: 0 0 40px rgba(0,255,255,0.6), inset 0 0 30px rgba(0,255,255,0.2);
+  transform: translateY(-50%) scale(1.1);
 }
-.banner-arrow.left { left: 20px; }
-.banner-arrow.right { right: 20px; }
 
-/* 产品展示 */
+.banner-arrow.left { left: 30px; }
+.banner-arrow.right { right: 30px; }
+
+/* 产品展示 - 赛博朋克卡片 */
 .products {
-  max-width:1200px;
-  margin:2rem auto;
-  padding:0 1rem;
+  max-width: 1400px;
+  margin: 4rem auto;
+  padding: 0 2rem;
 }
-.products h2 { text-align:center; margin-bottom:1rem; color:#ff7f50; }
-.product-grid {
-  display:flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap:1rem;
-}
-.product-card {
-  background:#fff;
-  border-radius:10px;
-  box-shadow:0 2px 5px rgba(0,0,0,0.1);
-  overflow:hidden;
-  flex:1 1 calc(33.333% - 1rem);
-  max-width:calc(33.333% - 1rem);
-  transition: transform 0.3s;
-}
-.product-card:hover { transform:translateY(-5px); }
-.product-card img { width:100%; height:auto; object-fit:cover; }
-.product-card .info { padding:1rem; text-align:center; }
 
-/* 关键新增：让产品描述文本两端对齐 */
+.products h2 {
+  font-family: 'Orbitron', sans-serif;
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #00ffff, #ff00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 30px rgba(0,255,255,0.3);
+  position: relative;
+}
+
+.products h2::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #00ffff, #ff00ff, transparent);
+}
+
+.product-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.product-card {
+  background: linear-gradient(145deg, rgba(20,20,30,0.9), rgba(10,10,15,0.9));
+  border-radius: 20px;
+  overflow: hidden;
+  flex: 1 1 calc(33.333% - 2rem);
+  max-width: 400px;
+  min-width: 300px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  border: 1px solid rgba(0,255,255,0.1);
+}
+
+.product-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 20px;
+  padding: 2px;
+  background: linear-gradient(135deg, #00ffff, transparent 50%, #ff00ff);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-15px) scale(1.02);
+  box-shadow: 
+    0 0 40px rgba(0,255,255,0.2),
+    0 0 80px rgba(255,0,255,0.1),
+    0 25px 50px rgba(0,0,0,0.5);
+}
+
+.product-card:hover::before {
+  opacity: 1;
+}
+
+.product-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.5s ease, filter 0.5s ease;
+  filter: brightness(0.85) saturate(1.1);
+}
+
+.product-card:hover img {
+  transform: scale(1.05);
+  filter: brightness(1) saturate(1.2);
+}
+
+.product-card .info {
+  padding: 1.5rem;
+  background: linear-gradient(180deg, transparent, rgba(0,0,0,0.8));
+}
+
+.product-card .info h3 {
+  font-family: 'Orbitron', sans-serif;
+  text-align: center;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(0,255,255,0.5);
+}
+
 .product-card .info p {
   text-align: justify;
-  /* 可选：优化英文单词间距，避免极端情况 */
-  word-spacing: -0.5px;
+  font-size: 0.95rem;
+  color: #aaa;
+  line-height: 1.7;
 }
 
-/* 可选：补充响应式适配，避免小屏幕显示错乱 */
-@media (max-width: 992px) {
-  .product-card {
-    flex:1 1 calc(50% - 1rem);
-    max-width:calc(50% - 1rem);
-  }
-}
-@media (max-width: 576px) {
-  .product-card {
-    flex:1 1 100%;
-    max-width:100%;
-  }
-}
-
-/* 关于我们 */
+/* 关于我们 - 暗黑科技风格 */
 .about {
-  max-width:800px;
-  margin:2rem auto;
-  padding:0 1rem;
+  max-width: 900px;
+  margin: 4rem auto;
+  padding: 3rem;
+  background: linear-gradient(145deg, rgba(15,15,25,0.95), rgba(5,5,10,0.95));
+  border-radius: 30px;
+  border: 1px solid rgba(0,255,255,0.15);
+  position: relative;
+  overflow: hidden;
 }
-.about h2 { color:#ff7f50; margin-bottom:1rem; }
 
-/* 页脚 */
-footer { background:#333; color:#fff; text-align:center; padding:1rem 0; margin-top:2rem; }
+.about::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #00ffff, #ff00ff, transparent);
+}
+
+.about h1, .about h2 {
+  font-family: 'Orbitron', sans-serif;
+  background: linear-gradient(135deg, #00ffff, #ff00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.about h1 {
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+}
+
+.about p {
+  max-width: 800px;
+  margin: 0 auto 1.5rem;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #bbb;
+  text-align: justify;
+}
+
+/* 联系我们 - 科技风 */
+#contact {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+#contact h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.2rem;
+  background: linear-gradient(135deg, #00ffff, #ff00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 2rem;
+}
+
+#contact a {
+  color: #00ffff;
+  transition: all 0.3s ease;
+}
+
+#contact a:hover {
+  color: #ff00ff;
+  text-shadow: 0 0 20px rgba(0,255,255,0.8);
+}
+
+.qr-container {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin: 2rem 0;
+}
+
+.qr-item {
+  background: rgba(20,20,30,0.8);
+  padding: 20px;
+  border-radius: 20px;
+  border: 1px solid rgba(0,255,255,0.2);
+  transition: all 0.3s ease;
+}
+
+.qr-item:hover {
+  box-shadow: 0 0 30px rgba(0,255,255,0.3);
+  transform: translateY(-5px);
+}
+
+.qr-item img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.qr-item p {
+  margin-top: 10px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.85rem;
+  color: #00ffff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* 页脚 - 霓虹风格 */
+footer {
+  background: linear-gradient(180deg, rgba(10,10,20,0.95), rgba(5,5,10,1));
+  border-top: 1px solid rgba(0,255,255,0.2);
+  color: #666;
+  text-align: center;
+  padding: 2rem;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+}
+
+footer span {
+  color: #00ffff;
+}
+
+/* 动态粒子背景 */
+.particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: #00ffff;
+  border-radius: 50%;
+  animation: float 15s infinite linear;
+  opacity: 0.5;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.5;
+  }
+  90% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
 
 /* 响应式 */
-@media(max-width:1024px){ .product-card { flex:1 1 calc(50% - 1rem); max-width:calc(50% - 1rem); } }
-@media(max-width:768px){
-  .navbar ul { display:none; flex-direction:column; gap:0; }
-  .navbar ul.show { display:flex; }
-  .nav-toggle { display:flex; }
-  .product-card { flex:1 1 100%; max-width:100%; }
+@media(max-width: 1024px) {
+  .product-card {
+    flex: 1 1 calc(50% - 2rem);
+    max-width: calc(50% - 1rem);
+  }
 }
+
+@media(max-width: 768px) {
+  .navbar ul {
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(10,10,20,0.98);
+    padding: 1rem;
+    border-bottom: 1px solid rgba(0,255,255,0.3);
+  }
+  .navbar ul.show { display: flex; }
+  .navbar li { padding: 0.8rem; border-bottom: 1px solid rgba(0,255,255,0.1); }
+  .nav-toggle { display: flex; }
+  
+  .product-card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+  
+  .qr-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+  
+  .products h2, .about h1, #contact h2 {
+    font-size: 1.8rem;
+  }
+  
+  .banner-arrow {
+    width: 45px;
+    height: 45px;
+    font-size: 1.4rem;
+  }
+  
+  .banner-arrow.left { left: 15px; }
+  .banner-arrow.right { right: 15px; }
+}
+
+/* 加载动画 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.product-card {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.product-card:nth-child(1) { animation-delay: 0.1s; }
+.product-card:nth-child(2) { animation-delay: 0.2s; }
+.product-card:nth-child(3) { animation-delay: 0.3s; }
+.product-card:nth-child(4) { animation-delay: 0.4s; }
+.product-card:nth-child(5) { animation-delay: 0.5s; }
+.product-card:nth-child(6) { animation-delay: 0.6s; }
 </style>
 <!-- 浏览器自绘 Favicon · 无图片 · 不改动原有代码 -->
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='5' y='5' width='90' height='90' rx='25' fill='white'/%3E%3Ctext x='50' y='72' font-size='65' font-weight='bold' text-anchor='middle' fill='black'%3ES%3C/text%3E%3C/svg%3E">
 </head>
 <body>
 
+<!-- 粒子背景 -->
+<div class="particles" id="particles"></div>
+
 <header>
   <div class="navbar">
-    <div class="logo" style="display:flex; flex-direction:column; align-items:flex-start;">
-      <span style="font-size:1.5rem; font-weight:bold; color:#ff7f50;">Seemagic</span>
-      <span style="font-size:0.9rem; color:#666; margin-top:2px;">Inventor of the Smart Electric Nail Clipper</span>
+    <div class="logo-container" style="display:flex; flex-direction:column; align-items:flex-start;">
+      <div class="logo">SEEMAGIC</div>
+      <span class="logo-subtitle">Inventor of the Smart Electric Nail Clipper</span>
     </div>
     <nav>
       <ul>
-        <!-- 关键修改：给每个 a 标签添加 style="font-weight:bold;" 实现加粗 -->
-        <li><a href="#banner" style="font-weight:bold;">HOME</a></li>
-        <li><a href="#products" style="font-weight:bold;">PRODUCTS</a></li>
-        <li><a href="#about" style="font-weight:bold;">ABOUT</a></li>
-        <li><a href="#contact" style="font-weight:bold;">CONTACT</a></li>
+        <li><a href="#banner">HOME</a></li>
+        <li><a href="#products">PRODUCTS</a></li>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#contact">CONTACT</a></li>
       </ul>
       <div class="nav-toggle">
         <span></span>
@@ -191,130 +616,114 @@ footer { background:#333; color:#fff; text-align:center; padding:1rem 0; margin-
 
 <!-- Banner -->
 <section class="banner" id="banner">
-  <!-- 图片将通过JavaScript动态生成 -->
   <div class="banner-arrow left" onclick="prevBanner()">&#10094;</div>
   <div class="banner-arrow right" onclick="nextBanner()">&#10095;</div>
 </section>
 
 <!-- 产品展示 -->
-<!-- 锚点占位符：高度等于导航栏高度，隐藏不显示，仅用于锚点定位 -->
 <div id="products" style="height: 80px; margin-top: -80px; visibility: hidden;"></div>
 <section class="products" id="products">
-  <h2>Our Products</h2>
+  <h2>OUR PRODUCTS</h2>
   <div class="product-grid">
     <div class="product-card">
-      <img src="./see_pic/Seemagic_electric_nail_clipper_pro_s.webp" alt="Product 1">
-      <div class="info"><h3 style="text-align:center">Electric Nail Clipper Pro</h3><p style="text-align:left">Arguably the market's top-selling and most renowned electric nail clipper. It strikes an excellent balance of performance and price. With years of enduring global popularity, it has won millions of users' trust. It consistently tops category bestseller lists on major e-commerce platforms year-round. A landmark in the industry, it has greatly boosted the popularization of electric nail clippers.</p></div>
+      <img src="see_pic/Seemagic_electric_nail_clipper_pro_s.webp" alt="Product 1">
+      <div class="info"><h3>Electric Nail Clipper Pro</h3><p>Arguably the market's top-selling and most renowned electric nail clipper. It strikes an excellent balance of performance and price. With years of enduring global popularity, it has won millions of users' trust. It consistently tops category bestseller lists on major e-commerce platforms year-round. A landmark in the industry, it has greatly boosted the popularization of electric nail clippers.</p></div>
     </div>
     <div class="product-card">
-      <img src="./see_pic/Seemagic_electric_nail_clipper_smart_s.webp" alt="Product 2">
-      <div class="info"><h3 style="text-align:center">The Electric Nail Clipper Elf</h3><p style="text-align:left"> It is designed for gifting. It features sports-car-grade paint and electroplated metal for a premium look, with a smooth magnetic cover for a satisfying high-end feel. Its compact yet powerful ultra-precise gearbox easily trims even thick nails. Presented in an exquisite gift box, it makes a thoughtful and impressive present, perfect for creating memorable moments.</p></div>
+      <img src="see_pic/Seemagic_electric_nail_clipper_smart_s.webp" alt="Product 2">
+      <div class="info"><h3>Electric Nail Clipper Elf</h3><p>It is designed for gifting. It features sports-car-grade paint and electroplated metal for a premium look, with a smooth magnetic cover for a satisfying high-end feel. Its compact yet powerful ultra-precise gearbox easily trims even thick nails. Presented in an exquisite gift box, it makes a thoughtful and impressive present, perfect for creating memorable moments.</p></div>
     </div>
     <div class="product-card">
-      <img src="./see_pic/Seemagic_electric_nail_clipper_mini.webp" alt="Product 3">
-      <div class="info"><h3 style="text-align:center">Electric Nail Clipper Mini</h3><p style="text-align:left">The Seemagic Electric Nail Clipper Mini features a newly engineered internal structure, compressing every component to achieve an ultra-compact and portable design. Despite its small size, it's equipped with a heat-treated, hardened blade and a magnetic flip cover for safer, faster, and more comfortable trimming. Practical, stylish, and fun to use — the perfect everyday companion you can carry anywhere.</p></div>
+      <img src="see_pic/Seemagic_electric_nail_clipper_mini.webp" alt="Product 3">
+      <div class="info"><h3>Electric Nail Clipper Mini</h3><p>The Seemagic Electric Nail Clipper Mini features a newly engineered internal structure, compressing every component to achieve an ultra-compact and portable design. Despite its small size, it's equipped with a heat-treated, hardened blade and a magnetic flip cover for safer, faster, and more comfortable trimming. Practical, stylish, and fun to use — the perfect everyday companion you can carry anywhere.</p></div>
     </div>
     <div class="product-card">
-      <img src="./see_pic/Seemagic_electric_nail_clipper_e2pro.webp" alt="Product 4">
-      <div class="info"><h3 style="text-align:center">Electric Nail Clipper (Alloy Edition)</h3><p style="text-align:left">The new Seemagic Electric Nail Clipper comes with powerful performance and a complete all-around upgrade. Crafted with a full-alloy body and finished through 17 layers of electroplating, it delivers a sleek metallic shine with a premium touch. More than just a tool, it's a statement of elegance—because true luxury lies in the experience of giving.</p></div>
+      <img src="see_pic/Seemagic_electric_nail_clipper_e2pro.webp" alt="Product 4">
+      <div class="info"><h3>Electric Nail Clipper (Alloy Edition)</h3><p>The new Seemagic Electric Nail Clipper comes with powerful performance and a complete all-around upgrade. Crafted with a full-alloy body and finished through 17 layers of electroplating, it delivers a sleek metallic shine with a premium touch. More than just a tool, it's a statement of elegance—because true luxury lies in the experience of giving.</p></div>
     </div>
     <div class="product-card">
-      <img src="./see_pic/Seemagic_electric_nail_clipper_hero_small.webp" alt="Product 5">
-      <div class="info"><h3 style="text-align:center">Electric Nail Clipper Hero</h3><p style="text-align:left">The Seemagic Planet Explorer Edition reimagines nail care with a bold, cosmic-inspired design that pays tribute to the beauty of Earth. Crafted with seamless curves and finished with premium anodized metal, it feels like holding a miniature planet in your hand. Powered by our patented infrared sensing technology, it sets a new standard where innovation meets artistry—bringing both style and performance to the next level.</p></div>
+      <img src="see_pic/Seemagic_electric_nail_clipper_hero_small.webp" alt="Product 5">
+      <div class="info"><h3>Electric Nail Clipper Hero</h3><p>The Seemagic Planet Explorer Edition reimagines nail care with a bold, cosmic-inspired design that pays tribute to the beauty of Earth. Crafted with seamless curves and finished with premium anodized metal, it feels like holding a miniature planet in your hand. Powered by our patented infrared sensing technology, it sets a new standard where innovation meets artistry—bringing both style and performance to the next level.</p></div>
     </div>
     <div class="product-card">
-      <img src="./see_pic/Seemagic_electric_nail_clipper_ufo_s.webp" alt="Product 6">
-      <div class="info"><h3 style="text-align:center">Electric Nail Clipper UFO</h3><p style="text-align:left"> It boasts a unique UFO-inspired design that exudes a strong sense of technology. Its incredibly affordable price creates an extremely low barrier to entry, making it the perfect choice for users trying electric nail clippers for the first time. This model is particularly well-suited for developing markets and has already earned enthusiastic praise and wide popularity among customers across Central Asia and Latin America.</p></div>
+      <img src="see_pic/Seemagic_electric_nail_clipper_ufo_s.webp" alt="Product 6">
+      <div class="info"><h3>Electric Nail Clipper UFO</h3><p>It boasts a unique UFO-inspired design that exudes a strong sense of technology. Its incredibly affordable price creates an extremely low barrier to entry, making it the perfect choice for users trying electric nail clippers for the first time. This model is particularly well-suited for developing markets and has already earned enthusiastic praise and wide popularity among customers across Central Asia and Latin America.</p></div>
     </div>
   </div>
 </section>
 
 <!-- 关于我们 -->
-<!-- 锚点占位符：高度等于导航栏高度，隐藏不显示，仅用于锚点定位 -->
 <div id="about" style="height: 30px; margin-top: -30px; visibility: hidden;"></div>
-<section class="about" id="about" style="background:#fff3f3; padding:60px 20px; font-family:Arial, sans-serif;">
-  <h1 style="font-size:2.5em; color:#ff7f50; margin-bottom:20px; text-align:center;">About Us</h1>
+<section class="about" id="about">
+  <h1>About Us</h1>
   
-  <h2 style="text-align:left; color:#333; margin-bottom:10px;">Seemagic – Smart Nail Care Redefined</h2>
-  <p style="max-width:800px; margin:0 auto 30px; font-size:1.1em; line-height:1.6; color:#333; text-align:left;">
-    Founded in 2020 in Qingdao, China, Seemagic is a pioneer in the electric nail clipper industry. In 2021, we launched the world's first smart electric nail clipper equipped with an infrared safety sensor and intelligent detection algorithms, ensuring a safer, more precise, and effortless grooming experience. And it quickly becoming a top choice across platforms and shaping the future of nail care. Millions of units sold worldwide.
-  </p>
+  <h2>Seemagic – Smart Nail Care Redefined</h2>
+  <p>Founded in 2020 in Qingdao, China, Seemagic is a pioneer in the electric nail clipper industry. In 2021, we launched the world's first smart electric nail clipper equipped with an infrared safety sensor and intelligent detection algorithms, ensuring a safer, more precise, and effortless grooming experience. And it quickly becoming a top choice across platforms and shaping the future of nail care. Millions of units sold worldwide.</p>
   
-  <p style="max-width:800px; margin:0 auto 30px; font-size:1.1em; line-height:1.6; color:#333; text-align:left;">
-    At Seemagic, innovation drives everything we do. With numerous patents and a commitment to precision, we craft smart tools that make personal care effortless, convenient, and time-saving — helping you stay beautiful and confident anytime, anywhere.
-  </p>
+  <p>At Seemagic, innovation drives everything we do. With numerous patents and a commitment to precision, we craft smart tools that make personal care effortless, convenient, and time-saving — helping you stay beautiful and confident anytime, anywhere.</p>
   
-  <h2 style="text-align:left; color:#333; margin-bottom:10px;">Team</h2>
-  <p style="max-width:800px; margin:0 auto; font-size:1.1em; line-height:1.6; color:#333; text-align:left;">
-    Qingdao Meiyike Technology Co., Ltd. integrates design, R&D, manufacturing, and sales. Our experienced team combines deep industry know-how with cutting-edge technology to deliver smart grooming solutions that fit modern lifestyles. With over 40 patents, we continue to lead in innovation, quality, and customer experience.
-  </p>
+  <h2>Team</h2>
+  <p>Qingdao Meiyike Technology Co., Ltd. integrates design, R&D, manufacturing, and sales. Our experienced team combines deep industry know-how with cutting-edge technology to deliver smart grooming solutions that fit modern lifestyles. With over 40 patents, we continue to lead in innovation, quality, and customer experience.</p>
 </section>
 
 <!-- 联系我们 -->
-<section class="about" id="contact" style="text-align:center; padding:40px 20px; font-family:Arial, sans-serif;">
-  <h2 style="color:#ff7f50; margin-bottom:20px;">Contact Us</h2>
+<section class="about" id="contact">
+  <h2>Contact Us</h2>
 
-  <!-- 可点击的邮箱 -->
+
+
+  <div class="qr-container"; >
+    <div class="qr-item">
+      <img src="see_pic/Seemagic_electric_nail_clipper_whatsapp.webp" alt="WhatsApp QR Code">
+      <p style="text-align:center; margin-top:8px; margin-bottom:0;">WhatsApp</p>
+    </div>
+    <div class="qr-item">
+      <img src="see_pic/Seemagic_electric_nail_clipper_wechat.webp" alt="WeChat QR Code">
+      <p style="text-align:center; margin-top:8px; margin-bottom:0;">WeChat</p>
+    </div>
+  </div>
+
   <p style="margin-bottom:15px;">
-    Email: <a href="mailto:support@seemagichub.com" style="color:#0073e6; text-decoration:none;">support@seemagichub.com</a>
+    Email: <a href="mailto:support@seemagichub.com">support@seemagichub.com</a>
   </p>
 
-  <!-- WhatsApp & WeChat -->
   <div style="margin-bottom:15px;">
     <p style="margin-bottom:10px;">WhatsApp: 85298164916</p>
   </div>
-
-  <!-- 二维码居中并排显示 -->
-  <div style="display:flex; justify-content:center; gap:40px; margin-bottom:20px;">
-    <div>
-      <img src="./see_pic/Seemagic_electric_nail_clipper_whatsapp.webp" alt="WhatsApp QR Code" style="width:150px; height:150px; object-fit:contain;">
-      <p style="margin-top:8px;">WhatsApp</p>
-    </div>
-    <div>
-      <img src="./see_pic/Seemagic_electric_nail_clipper_wechat.webp" alt="WeChat QR Code" style="width:150px; height:150px; object-fit:contain;">
-      <p style="margin-top:8px;">WeChat</p>
-    </div>
-  </div>
-
-  <!-- 地址 -->
   <p style="margin-top:20px;">Address: No.169 of Songling Road, Qingdao, PRC</p>
 </section>
 
 <footer>
-  &copy; <span id="year"></span> Seemagic. All rights reserved.
+  &copy; <span id="year"></span> <span>SEEMAGIC</span>. All rights reserved. | Dark Tech Edition
 </footer>
 
 <script>
 // 自动获取当前年份
 document.getElementById('year').textContent = new Date().getFullYear();
-</script>
 
-<script>
 // 响应式导航
 const navToggle = document.querySelector('.nav-toggle');
 const navUl = document.querySelector('.navbar ul');
 navToggle.addEventListener('click', ()=>{ navUl.classList.toggle('show'); });
 
-// PC和Mobile两套banner数组 - 融合op20.html的响应式逻辑
+// Banner 轮播
 const pcBanners = [
-  "./see_pic/Seemagic_electric_nail_clipper_family.webp",
-  "./see_pic/Seemagic_electric_nail_clipper_pro.webp",
-  "./see_pic/Seemagic_electric_nail_clipper_smart.webp",
-  "./see_pic/Seemagic_electric_nail_clipper_hero.webp"
+  "see_pic/Seemagic_electric_nail_clipper_family.webp",
+  "see_pic/Seemagic_electric_nail_clipper_pro.webp",
+  "see_pic/Seemagic_electric_nail_clipper_smart.webp",
+  "see_pic/Seemagic_electric_nail_clipper_hero.webp"
 ];
 const mobileBanners = [
-  "./see_pic/Seemagic_electric_nail_clipper_family-phone.webp",
-  "./see_pic/Seemagic_electric_nail_clipper_pro-phone.webp",
-  "./see_pic/Seemagic_electric_nail_clipper_smart-phone.webp",
-  "./see_pic/Seemagic_electric_nail_clipper_hero-phone.webp"
+  "see_pic/Seemagic_electric_nail_clipper_family-phone.webp",
+  "see_pic/Seemagic_electric_nail_clipper_pro-phone.webp",
+  "see_pic/Seemagic_electric_nail_clipper_smart-phone.webp",
+  "see_pic/Seemagic_electric_nail_clipper_hero-phone.webp"
 ];
 
-// 根据屏幕选择数组
 let banners = (window.innerWidth <= 768) ? mobileBanners : pcBanners;
 let bannerIndex = 0;
 const bannerContainer = document.getElementById("banner");
 
-// 初始化banner图片
 function renderBanner(){
   bannerContainer.querySelectorAll("img").forEach(el => el.remove());
   banners.forEach((src,i)=>{
@@ -325,7 +734,6 @@ function renderBanner(){
   });
 }
 
-// 显示指定索引的banner
 function showBanner(index){
   const imgs = bannerContainer.querySelectorAll("img");
   imgs.forEach(img => img.classList.remove("active"));
@@ -333,23 +741,17 @@ function showBanner(index){
   bannerIndex = index;
 }
 
-// 下一张
 function nextBanner(){
   showBanner((bannerIndex+1)%banners.length);
 }
 
-// 上一张
 function prevBanner(){
   showBanner((bannerIndex-1+banners.length)%banners.length);
 }
 
-// 初始化banner
 renderBanner();
-
-// 自动轮播
 setInterval(nextBanner,4000);
 
-// 监听窗口大小变化，重新选择banner数组
 window.addEventListener('resize', function() {
   const newBanners = (window.innerWidth <= 768) ? mobileBanners : pcBanners;
   if (newBanners !== banners) {
@@ -357,6 +759,43 @@ window.addEventListener('resize', function() {
     bannerIndex = 0;
     renderBanner();
   }
+});
+
+// 创建粒子背景
+function createParticles() {
+  const container = document.getElementById('particles');
+  const particleCount = 30;
+  
+  for (let i = 0; i < particleCount; i++) {
+    const particle = document.createElement('div');
+    particle.className = 'particle';
+    particle.style.left = Math.random() * 100 + '%';
+    particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+    particle.style.animationDelay = (Math.random() * 10) + 's';
+    particle.style.opacity = Math.random() * 0.5 + 0.2;
+    
+    // 随机颜色
+    const colors = ['#00ffff', '#ff00ff', '#00ff88'];
+    particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+    particle.style.boxShadow = `0 0 ${Math.random() * 10 + 5}px ${particle.style.background}`;
+    
+    container.appendChild(particle);
+  }
+}
+
+createParticles();
+
+// 平滑滚动
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+    // 移动端点击后关闭菜单
+    navUl.classList.remove('show');
+  });
 });
 </script>
 
